@@ -1,0 +1,17 @@
+#import all modules
+
+import pandas as pd
+import datetime as dt
+from pandas_datareader import data
+from matplotlib import pyplot as plt
+import numpy as np
+import seaborn as sns
+%matplotlib inline
+
+
+#get the stocks info from the yahoo website, and store them as a dataframe
+
+stocks = data.DataReader(name = ["IBM", "ORCL", "MSFT"], data_source = "yahoo", start = "2020-10-01", end = "2020-10-20")
+dates = pd.date_range(start = "2020-10-01", end = "2020-10-20", freq = "B")
+
+
