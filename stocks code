@@ -15,3 +15,45 @@ stocks = data.DataReader(name = ["IBM", "ORCL", "MSFT"], data_source = "yahoo", 
 dates = pd.date_range(start = "2020-10-01", end = "2020-10-20", freq = "B")
 
 
+stocks.head()  #show the top 5 lines of the stocks dataframe
+
+stocks.describe()   #show the numeric details of the stocks dataframe
+
+stocks.describe().to_csv("stocks description.csv") #output the above description info to a csv file.
+
+stocks.info()  #present the info of each column in the dataframe
+
+stocks.loc["2020-10-05": "2020-10-10", "High"]  #show the high column value of rows from 2020-10-05 to 2020-10-10
+
+stocks.iloc[2:7, 6:9] #the same output as above, but using index locations instead of index names
+
+np.mean(stocks["High"]["IBM"]) #get the mean of all IBM high
+np.max(stocks["High"]["IBM"]) #get the max of all IBM high
+np.min(stocks["High"]["IBM"]) #get the min of all IBM high
+np.std(stocks["High"]["IBM"]) #get the std of all IBM high
+np.sum(stocks["High"]["IBM"]) #get the sum of all IBM high
+np.percentile(stocks["High"]["IBM"], 25)
+np.percentile(stocks["High"]["IBM"], 75)
+
+
+
+#use matplotlib to show a line chart to present the high and low price of the IBM stock
+
+
+plt.figure(figsize = (15,10))  #create a new figure
+plt.plot(stocks["High"]["IBM"], color = "Green", label = "High")  # plot the line of IBM stock high price, x axis is date
+plt.plot(stocks["Low"]["IBM"], color = "Red", label = "Low", linestyle = "--") # plot the line of IBM stock low price.
+plt.xlabel("Date")
+plt.ylabel("Dollars")
+plt.title("high and low price of IBM stocks")
+plt.legend(loc = 6) #location of the legend
+plt.savefig("IBM stock high and low prices - October.jpg")
+
+#use a pie chart to compare the high of each stocks on 2020-10-01
+
+plt.figure(figsize = (15,10))  #create a new figure
+plt.pie(stocks.loc["2020-10-01", "High"], labels = ["IBM", "ORCL", "MSFT"], autopct='%0.1f%%')
+plt.savefig("IBM stock high Pie chart.jpg")
+
+
+plt.hist(stocks["High"]["ORCL"], bins = 20)
