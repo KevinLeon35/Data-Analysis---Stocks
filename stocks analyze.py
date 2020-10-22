@@ -32,5 +32,13 @@ np.max(stocks["High"]["IBM"]) #get the max of all IBM high
 np.min(stocks["High"]["IBM"]) #get the min of all IBM high
 np.std(stocks["High"]["IBM"]) #get the std of all IBM high
 np.sum(stocks["High"]["IBM"]) #get the sum of all IBM high
-np.percentile(stocks["High"]["IBM"], 25)
-np.percentile(stocks["High"]["IBM"], 75)
+np.percentile(stocks["High"]["IBM"], 25) #get the 25th percentile of the IBM High
+np.percentile(stocks["High"]["IBM"], 75) #get the 75th percentile of the IBM High
+
+stocks[(stocks["High"]["IBM"] > 126) & (stocks["High"]["ORCL"] > 61.5)]  # Returns those rows which have the high value of IBM stock more than 126 and High value of Oracle stock more than 61.5
+
+stocks[(stocks["High"]["IBM"] > 126) | (stocks["High"]["ORCL"] > 61.5)]  # Returns those rows which have the high value of IBM stock more than 126 or High value of Oracle stock more than 61.5
+
+stocks[(stocks["High"]["IBM"] > np.mean(stocks["High"]["IBM"])) & (stocks["High"]["ORCL"] > np.mean(stocks["High"]["ORCL"]))]   # Returns those rows which have the high value of IBM stock more than its average and High value of Oracle stock more than its average
+
+stocks[(stocks["High"]["IBM"] > np.mean(stocks["High"]["IBM"])) & (stocks["High"]["ORCL"] > np.mean(stocks["High"]["ORCL"]))]   # Returns those rows which have the high value of IBM stock more than its average or  High value of Oracle stock more than its average
