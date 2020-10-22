@@ -19,7 +19,7 @@ stocks.head()  #show the top 5 lines of the stocks dataframe
 
 stocks.describe()   #show the numeric details of the stocks dataframe
 
-stocks.describe().to_csv("stocks description.csv") #output the above description info to a csv file.
+stocks.describe().to_csv("stocks description.csv") #output the above description info to a csv file, this description file has been uploaded to the repository.
 
 stocks.info()  #present the info of each column in the dataframe
 
@@ -47,13 +47,13 @@ plt.xlabel("Date")
 plt.ylabel("Dollars")
 plt.title("high and low price of IBM stocks")
 plt.legend(loc = 6) #location of the legend
-plt.savefig("IBM stock high and low prices - October.jpg")
+plt.savefig("IBM stock high and low prices - October.jpg") #This line chart jpg has been uploaded to the repository.
 
 #use a pie chart to compare the high of each stocks on 2020-10-01
 
 plt.figure(figsize = (15,10))  #create a new figure
 plt.pie(stocks.loc["2020-10-01", "High"], labels = ["IBM", "ORCL", "MSFT"], autopct='%0.1f%%')
-plt.savefig("IBM stock high Pie chart.jpg")
+plt.savefig("IBM stock high Pie chart.jpg")  ##This pie chart jpg file has been uploaded to the repository.
 
 
 plt.hist(stocks["High"]["ORCL"], bins = 20)
