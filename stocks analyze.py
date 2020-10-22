@@ -42,3 +42,13 @@ stocks[(stocks["High"]["IBM"] > 126) | (stocks["High"]["ORCL"] > 61.5)]  # Retur
 stocks[(stocks["High"]["IBM"] > np.mean(stocks["High"]["IBM"])) & (stocks["High"]["ORCL"] > np.mean(stocks["High"]["ORCL"]))]   # Returns those rows which have the high value of IBM stock more than its average and High value of Oracle stock more than its average
 
 stocks[(stocks["High"]["IBM"] > np.mean(stocks["High"]["IBM"])) & (stocks["High"]["ORCL"] > np.mean(stocks["High"]["ORCL"]))]   # Returns those rows which have the high value of IBM stock more than its average or  High value of Oracle stock more than its average
+
+stocks[stocks["High"]["IBM"] < stocks["Low"]["MSFT"] * 0.4] # Returns those rows which have high value of IBM smaller than 40% of low value of Microsoft
+
+stocks[stocks["High"]["IBM"] < stocks["Low"]["MSFT"] * 0.58] # Returns those rows which have high value of IBM smaller than 58% of low value of Microsoft
+
+stocks[stocks["High"]["IBM"] > stocks["Low"]["MSFT"] * 0.58]  # Returns those rows which have high value of IBM bigger than 58% of low value of Microsoft
+
+stocks[stocks["High"]["ORCL"] > stocks["High"]["MSFT"] - stocks["High"]["IBM"]]
+
+stocks[stocks["High"]["ORCL"] < (stocks["Low"]["MSFT"] - stocks["Low"]["IBM"]) * 0.65]
