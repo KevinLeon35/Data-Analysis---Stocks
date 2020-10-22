@@ -49,6 +49,6 @@ stocks[stocks["High"]["IBM"] < stocks["Low"]["MSFT"] * 0.58] # Returns those row
 
 stocks[stocks["High"]["IBM"] > stocks["Low"]["MSFT"] * 0.58]  # Returns those rows which have high value of IBM bigger than 58% of low value of Microsoft
 
-stocks[stocks["High"]["ORCL"] > stocks["High"]["MSFT"] - stocks["High"]["IBM"]]
+stocks[stocks["High"]["ORCL"] > (stocks["High"]["MSFT"] - stocks["High"]["IBM"])] # return rows which have high value of ORCL bigger than the difference between high value of Microsoft and high value of IBM
 
-stocks[stocks["High"]["ORCL"] < (stocks["Low"]["MSFT"] - stocks["Low"]["IBM"]) * 0.65]
+stocks[stocks["High"]["ORCL"] < (stocks["Low"]["MSFT"] - stocks["Low"]["IBM"]) * 0.65] # return rows which have high value of Oracle smaller than 65% of the difference between low value of Microsoft and low value of IBM
